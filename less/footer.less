@@ -1,0 +1,54 @@
+.footer{
+	background:@navy;
+	color:@gray;
+
+	p{
+		margin-bottom:0;
+	}
+	.main-logo{
+		height:2.1rem;
+		width:auto;
+		display:inline-block;
+		margin-bottom:3.5rem;
+		
+		img{
+			display:block;
+		}
+
+		@media @xl{
+			margin-bottom:0
+		}
+	}
+	
+
+	ul{
+		
+		
+		@media @xl{
+			text-align:right;
+		}
+
+		li{
+			list-style-type: none;
+
+			@media @xl{
+				display:inline;
+				margin-left:2.6rem;	
+			}
+
+			
+
+			a{
+				color:@gray;
+				text-decoration:none;
+				font-size:1rem;
+				text-transform: uppercase;
+				
+				&:hover{
+					color:@gray-light;
+				};
+
+			}
+		}
+	}
+}

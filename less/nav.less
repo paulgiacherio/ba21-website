@@ -1,0 +1,233 @@
+/* the actual nav and fixed background container */
+nav{
+	transform:scale(0);
+	position:fixed;
+	width:100vw;
+	height:100vh;
+	top:0;
+	background:@violet;
+	z-index:1;	
+	
+	li{
+		list-style-type: none;
+	}
+	
+	/* wait, then overlay the nav container */
+	.nav-open &{
+		animation: navopen .1s .1s both;
+	}
+	/* wait then hide the nav container */
+	.nav-close &{
+		animation: navclose .1s .3s both;
+	}
+	
+
+	.nav-row{
+		display:flex;
+		height:100%;
+
+		& .tagline{
+			margin-bottom:2.6rem;
+			color:white;
+		}
+	}
+	.nav-grid{
+		
+		width:100%;
+	    -webkit-align-self: center;
+	    -moz-align-self: center;
+	    -ms-align-self: center;
+	    align-self: center;
+	}
+}
+	
+	/* move nav onscreen */
+	@keyframes navopen{
+		from{
+			transform:scale(0);		
+		}
+		to{
+			transform:scale(1);		
+		}
+	}
+	/* move nav offscreen */
+	@keyframes navclose{
+		from{
+			transform:scale(1);		
+		}
+		to{
+			transform:scale(0);		
+		}
+	}
+
+/* nav styles */
+.nav-list{
+	font-size:2.1em;
+	display:inline-block;
+	text-align:left;
+
+	a{	
+		display:block;
+		color:white;
+		text-decoration:none;
+		font-weight:300;
+		padding:.33rem 0;
+		border-bottom:1px solid rgba(255,255,255,.2);
+
+		&:hover{
+			color:@navy;
+		};
+	}
+}
+
+
+/* contains the toggle */
+header{
+	position: fixed;
+	top:1.6rem;
+	width:100%;
+	z-index:100;
+
+	.nav-open &{
+		position:fixed;
+	}
+
+	@media @xl{
+		top:2.6rem;
+	}
+}
+
+.nav-toggle {
+	outline:0;
+	background:@violet;
+	display:inline-block;
+	height: 40px;
+	width: 40px;
+	border-radius:50%;
+	box-shadow:0px 2px 5px rgba(0,0,0,.3);
+	transition: all .3s;
+	position:relative;
+	
+	
+	&:hover,&:active,&:focus{
+		outline:0;
+	}
+	&:hover{
+		background:lighten(@violet,5%);
+		box-shadow:0px 6px 8px rgba(0,0,0,.2);
+	}
+
+	.nav-open &{
+		background:@navy;
+	}
+
+	&:before{
+
+		position:absolute;
+		width:100%;
+		height:100%;
+		transform:scale(0);
+		opacity:1;
+		transform-origin: center center;
+		background:@violet;
+		display:block;
+		content:'';
+		z-index:-1;
+		border-radius:inherit;
+		
+		/* grow overlay from behind button */
+		.nav-open &{
+
+			animation: nav-overlay-open .75s;
+		}
+
+		/* shrink overlay */
+		.nav-close &{
+			animation: nav-overlay-close .75s;
+		}
+
+	}
+}
+	/* scale up the overlay, then fadeout to show nav */
+	@keyframes nav-overlay-open{
+		0%{
+			transform:scale(0);		
+			opacity:1;}
+		50%{
+			transform:scale(100);		
+			opacity:1;
+		}	
+		100%{
+			transform:scale(100);		
+			opacity:0;
+		}
+	}
+	
+	/* fadein the overlay to hide nav then scale out */
+	@keyframes nav-overlay-close{
+		0%{
+			transform:scale(100);		
+			opacity:0;}
+		50%{
+			transform:scale(100);		
+			opacity:1;
+		}	
+		100%{
+			transform:scale(0);		
+			opacity:1;
+		}
+	}
+
+/* nav toggle button and hamburger animation */
+.nav-toggle .nav-icon {
+	position:absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	display: block;
+	width: 18px;
+	height: 3px;
+	background-color: #ffffff;
+	z-index: 10;
+	border-radius:3px;
+}
+ 
+.nav-toggle .nav-icon::before, .nav-toggle .nav-icon::after {
+	/* buns of the hamburger */
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border-radius:3px;
+	background-color: inherit;
+	transition: transform .3s;
+	content:'';
+}
+ 
+.nav-toggle .nav-icon:before {
+ 	transform: translateY(-6px) rotate(0deg);
+}
+ 
+.nav-toggle .nav-icon:after {
+  transform: translateY(6px) rotate(0deg);
+}
+
+/* fade out the hamburger */ 
+.nav-open .nav-toggle .nav-icon {  
+  background-color: rgba(255, 255, 255, 0);
+}
+ 
+/* make the buns white */
+.nav-open .nav-toggle .nav-icon:before, .nav-toggle .nav-icon:after {
+  background-color: white;
+}
+
+/* cross the buns  haha */
+.nav-open .nav-toggle .nav-icon:before {
+  transform: translateY(0) rotate(45deg);
+}
+ 
+.nav-open .nav-toggle .nav-icon:after {
+  transform: translateY(0) rotate(-45deg);
+}

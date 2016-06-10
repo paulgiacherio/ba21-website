@@ -1,0 +1,47 @@
+/* BUTTONS */
+
+.button{
+	display:inline-block;
+	padding:.5rem 2.1rem;
+	margin:0 1.6rem;
+	text-decoration:none;
+	.border-radius(.5rem);
+	color:white;
+	transition:all .25s;
+	.buttoncolor(@violet);
+	text-transform:uppercase;
+	letter-spacing:1px;
+	font-size:.875rem;
+	white-space: nowrap;
+	
+		&.navy{
+			.buttoncolor(@navy);
+		}
+		&.white{
+			.buttoncolor(white);
+		}
+		&.black{
+			.buttoncolor(@gray-dark);
+		}	
+}
+
+/* hollow mixin */
+
+.buttoncolor(@hollowColor){
+	background:@hollowColor;
+	border:2px solid @hollowColor;
+	&:hover{
+			background:darken(@hollowColor,10%);
+			border-color:darken(@hollowColor,10%);;
+			color:white;
+		};
+	&.hollow{
+		border:2px solid @hollowColor;
+		background:transparent;
+		color:@hollowColor;
+			&:hover{
+				background:@hollowColor;
+				color:white;
+			};
+	};
+};

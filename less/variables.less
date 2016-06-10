@@ -1,0 +1,89 @@
+/* VARIABLES */
+
+/* reference 
+	1.6 2.6 4.1 6.6 10.5*/
+
+/* default font size and lineheight */
+
+@font-size:      	100%;
+@line-height:		1.6;
+@lh:    			1.6rem;
+
+
+/* webfonts */
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@sans-font-family: "Lato", Arial, sans-serif;
+
+/* brand colors */
+
+@bg-color:     		#FFFFFF;
+@navy:				#26262b;
+@violet:			#DE14C4;	
+@blue:        		#0076a3;
+@red:         		#b22124;
+@green:       		#74B943;
+@ocean:      		#20252c;
+@gray-darkest:    	lighten(#000, 10%);
+@gray-dark:       	lighten(#000, 20%);
+@gray:         		lighten(#000, 50%);
+@gray-light:      	lighten(#000, 65%);
+@gray-lighter:    	lighten(#000, 90%);
+@gray-lightest:     lighten(#000, 97%);
+
+
+
+/* helpers */
+.border-radius (@radius: 1em) {
+	border-radius:         @radius;
+}
+
+.text-center{
+  text-align:center;
+    
+    img&{
+      margin-left:auto;
+      margin-right: auto;
+    }
+}
+
+.text-right{
+	text-align:right;}
+
+.text-left{
+	text-align:left;}
+
+.flat-bottom{
+	padding-bottom:0;
+	margin-bottom:0;
+}
+.alt{
+	background:@gray-lightest;
+}
+.alt-dark{
+	background:@navy;
+	color:white;
+}
+.alt-darker{
+	background:darken(@navy,3%);
+	color:white;	
+}
+.alt-bright{
+	background:@violet;
+}
+.shadow{
+	box-shadow: 0 20px 40px rgba(0,0,0,.1)
+}
+
+.hide-sm{
+	@media @sm{
+		display:none;
+	}
+}
+
+
+
+/* simplified responsive queries */
+@sm:      ~"only screen and (max-width : 769px)";
+@xl:     ~"only screen and (min-width: 950px)";

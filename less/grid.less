@@ -1,0 +1,213 @@
+/* GRID */
+
+.row{
+    padding: 0 @lh ;
+  }  
+
+/* desktop only */
+
+@media @xl{
+
+  /* 
+    rows 
+    contain .grid items distributed horizontally
+  */
+
+  .row {
+    display: flex;
+    margin: 0 auto 0;
+    max-width: 92.795rem;
+    padding: 0 @lh;
+  }
+
+  .row-full-width{
+    max-width:100%;
+    padding:0;
+  }
+  .row-full-height{
+    height:100%;
+  }
+
+  .row-reverse{
+    -webkit-flex-direction:row-reverse;
+    flex-direction:row-reverse;
+  }
+
+  /* 
+    how grids are horizontally distributed within a row
+    add classes to .row container
+  */
+
+  .row-left {
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    justify-content: flex-start;
+  }
+
+  .row-right {
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end;
+  }
+
+  .row-center {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+  } 
+
+  /* 
+    column 
+    add class to .row container to distribute .grid items vertically
+  */
+
+  .column {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  
+  /* 
+    grid 
+    .grid items are inside .row or .column containers
+  */  
+
+  .grid {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; 
+    padding: 0 @lh;
+  }
+
+  .grid-full-width{
+    padding:0 0;
+  }
+
+  /* 
+    grid-specific sizing 
+    add these classes in addition to .grid containers to specify width
+  */
+
+  .grid-10 {
+    -webkit-box-flex: 0 0 10%;
+    -moz-box-flex: 0 0 10%;
+    -webkit-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+  }
+
+  .grid-15 {
+    -webkit-box-flex: 0 0 15%;
+    -moz-box-flex: 0 0 15%;
+    -webkit-flex: 0 0 15%;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+  }
+
+  .grid-20 {
+    -webkit-box-flex: 0 0 20%;
+    -moz-box-flex: 0 0 20%;
+    -webkit-flex: 0 0 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+  }
+
+  .grid-25 {
+    -webkit-box-flex: 0 0 25%;
+    -moz-box-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+  }
+
+  .grid-30 {
+    -webkit-box-flex: 0 0 30%;
+    -moz-box-flex: 0 0 30%;
+    -webkit-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+  }
+
+  .grid-33 {
+    -webkit-box-flex: 0 0 33.33%;
+    -moz-box-flex: 0 0 33.33%;
+    -webkit-flex: 0 0 33.33%;
+    -ms-flex: 0 0 33.33%;
+    flex: 0 0 33.33%;
+  }
+
+  .grid-40 {
+    -webkit-box-flex: 0 0 40%;
+    -moz-box-flex: 0 0 40%;
+    -webkit-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+  }
+
+  .grid-50 {
+    -webkit-box-flex: 0 0 50%;
+    -moz-box-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
+
+  .grid-60 {
+    -webkit-box-flex: 0 0 60%;
+    -moz-box-flex: 0 0 60%;
+    -webkit-flex: 0 0 60%;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
+  }
+
+  .grid-75 {
+    -webkit-box-flex: 0 0 75%;
+    -moz-box-flex: 0 0 75%;sectio
+    -webkit-flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+  }
+
+  /* 
+    how grids are vertically aligned within a row/column
+    add classes to .grid container 
+  */
+
+  .grid-top {
+    -webkit-align-self: flex-start;
+    -moz-align-self: flex-start;
+    -ms-align-self: flex-start;
+    align-self: flex-start;
+  }
+
+  .grid-bottom {
+    -webkit-align-self: flex-end;
+    -moz-align-self: flex-end;
+    -ms-align-self: flex-end;
+    align-self: flex-end;
+  }
+
+  .grid-center {
+    -webkit-align-self: center;
+    -moz-align-self: center;
+    -ms-align-self: center;
+    align-self: center;
+    
+  }
+
+  /* 
+    flex-grow - allow grid to fill remaining space
+    add to .grid and surrounding .grids must have explicit width or height
+  */
+
+  .grid-grow{
+    flex-grow: 1;
+  }
+}
+
+
+

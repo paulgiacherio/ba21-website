@@ -1,0 +1,6 @@
+_site/
+config.codekit
+.codekit-cache/
+indexOLD.html
+img/original-photos/
+*.sketch

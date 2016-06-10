@@ -1,0 +1,906 @@
+/* 
+	ba21 style - barebones flexbox framework 
+	@paulgiacherio & @cambeers
+*/
+/* VARIABLES */
+/* reference 
+	1.6 2.6 4.1 6.6 10.5*/
+/* default font size and lineheight */
+/* webfonts */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/* brand colors */
+/* helpers */
+.text-center {
+  text-align: center;
+}
+img.text-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+.flat-bottom {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.alt {
+  background: #f7f7f7;
+}
+.alt-dark {
+  background: #26262b;
+  color: white;
+}
+.alt-darker {
+  background: #1f1f23;
+  color: white;
+}
+.alt-bright {
+  background: #DE14C4;
+}
+.shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width : 769px) {
+  .hide-sm {
+    display: none;
+  }
+}
+/* simplified responsive queries */
+/* RESET */
+/* 
+	remove all defaults and ensure border-box
+	add @lh margin to everything - an experiment 
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* block these */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+/* just in case */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+/* body and html height and background*/
+html,
+body {
+  min-height: 100vh;
+  background: #FFFFFF;
+}
+/* make sure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* TEXT */
+/* body */
+html,
+body {
+  color: #26262b;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.6;
+}
+/* links */
+a {
+  color: #DE14C4;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+  color: #af109b;
+}
+/* paragraph */
+p {
+  margin: 0 0 1.6rem 0;
+}
+/* lists */
+li {
+  margin-bottom: 0;
+}
+/* add'l */
+sup {
+  font-size: .75em;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #333333;
+  height: 1px;
+  background: transparent;
+}
+/* headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  margin-bottom: 2.6rem;
+  line-height: 1.2em;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  font-size: .6em;
+}
+h1 {
+  font-size: 4.2rem;
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 3.5rem;
+  font-size: 2.6rem;
+}
+h3 {
+  font-size: 2.6rem;
+  font-size: 2.1rem;
+}
+h4 {
+  font-size: 2.1rem;
+  font-size: 1.6rem;
+}
+h5 {
+  font-size: 1.6rem;
+  font-size: 1.3rem;
+  color: #808080;
+}
+h6 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #DE14C4;
+  letter-spacing: 1px;
+}
+/* GRID */
+.row {
+  padding: 0 1.6rem;
+}
+/* desktop only */
+@media only screen and (min-width: 950px) {
+  /* 
+    rows 
+    contain .grid items distributed horizontally
+  */
+  .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto 0;
+    max-width: 92.795rem;
+    padding: 0 1.6rem;
+  }
+  .row-full-width {
+    max-width: 100%;
+    padding: 0;
+  }
+  .row-full-height {
+    height: 100%;
+  }
+  .row-reverse {
+    -webkit-flex-direction: row-reverse;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  /* 
+    how grids are horizontally distributed within a row
+    add classes to .row container
+  */
+  .row-left {
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .row-right {
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .row-center {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  /* 
+    column 
+    add class to .row container to distribute .grid items vertically
+  */
+  .column {
+    -webkit-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  /* 
+    grid 
+    .grid items are inside .row or .column containers
+  */
+  .grid {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0 1.6rem;
+  }
+  .grid-full-width {
+    padding: 0 0;
+  }
+  /* 
+    grid-specific sizing 
+    add these classes in addition to .grid containers to specify width
+  */
+  .grid-10 {
+    -webkit-box-flex: 0 0 10%;
+    -webkit-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 10%;
+  }
+  .grid-15 {
+    -webkit-box-flex: 0 0 15%;
+    -webkit-flex: 0 0 15%;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+  }
+  .grid-20 {
+    -webkit-box-flex: 0 0 20%;
+    -webkit-flex: 0 0 20%;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+  }
+  .grid-25 {
+    -webkit-box-flex: 0 0 25%;
+    -webkit-flex: 0 0 25%;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+  }
+  .grid-30 {
+    -webkit-box-flex: 0 0 30%;
+    -webkit-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+  }
+  .grid-33 {
+    -webkit-box-flex: 0 0 33.33%;
+    -webkit-flex: 0 0 33.33%;
+    -ms-flex: 0 0 33.33%;
+    flex: 0 0 33.33%;
+  }
+  .grid-40 {
+    -webkit-box-flex: 0 0 40%;
+    -webkit-flex: 0 0 40%;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+  }
+  .grid-50 {
+    -webkit-box-flex: 0 0 50%;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
+  .grid-60 {
+    -webkit-box-flex: 0 0 60%;
+    -webkit-flex: 0 0 60%;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
+  }
+  .grid-75 {
+    -webkit-box-flex: 0 0 75%;
+    -moz-box-flex: 0 0 75%;
+    sectio-webkit-flex: 0 0 75%;
+    -ms-flex: 0 0 75%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+            flex: 0 0 75%;
+  }
+  /* 
+    how grids are vertically aligned within a row/column
+    add classes to .grid container 
+  */
+  .grid-top {
+    -webkit-align-self: flex-start;
+    -ms-align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .grid-bottom {
+    -webkit-align-self: flex-end;
+    -ms-align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .grid-center {
+    -webkit-align-self: center;
+    -ms-align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+  /* 
+    flex-grow - allow grid to fill remaining space
+    add to .grid and surrounding .grids must have explicit width or height
+  */
+  .grid-grow {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+/* the actual nav and fixed background container */
+nav {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: #DE14C4;
+  z-index: 1;
+  /* wait, then overlay the nav container */
+  /* wait then hide the nav container */
+}
+nav li {
+  list-style-type: none;
+}
+.nav-open nav {
+  -webkit-animation: navopen .1s .1s both;
+          animation: navopen .1s .1s both;
+}
+.nav-close nav {
+  -webkit-animation: navclose .1s .3s both;
+          animation: navclose .1s .3s both;
+}
+nav .nav-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+nav .nav-row .tagline {
+  margin-bottom: 2.6rem;
+  color: white;
+}
+nav .nav-grid {
+  width: 100%;
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+/* move nav onscreen */
+@-webkit-keyframes navopen {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes navopen {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/* move nav offscreen */
+@-webkit-keyframes navclose {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+@keyframes navclose {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+/* nav styles */
+.nav-list {
+  font-size: 2.1em;
+  display: inline-block;
+  text-align: left;
+}
+.nav-list a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  padding: .33rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.nav-list a:hover {
+  color: #26262b;
+}
+/* contains the toggle */
+header {
+  position: fixed;
+  top: 1.6rem;
+  width: 100%;
+  z-index: 100;
+}
+.nav-open header {
+  position: fixed;
+}
+@media only screen and (min-width: 950px) {
+  header {
+    top: 2.6rem;
+  }
+}
+.nav-toggle {
+  outline: 0;
+  background: #DE14C4;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  position: relative;
+}
+.nav-toggle:hover,
+.nav-toggle:active,
+.nav-toggle:focus {
+  outline: 0;
+}
+.nav-toggle:hover {
+  background: #eb21d1;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+.nav-open .nav-toggle {
+  background: #26262b;
+}
+.nav-toggle:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  opacity: 1;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  background: #DE14C4;
+  display: block;
+  content: '';
+  z-index: -1;
+  border-radius: inherit;
+  /* grow overlay from behind button */
+  /* shrink overlay */
+}
+.nav-open .nav-toggle:before {
+  -webkit-animation: nav-overlay-open 0.75s;
+          animation: nav-overlay-open 0.75s;
+}
+.nav-close .nav-toggle:before {
+  -webkit-animation: nav-overlay-close 0.75s;
+          animation: nav-overlay-close 0.75s;
+}
+/* scale up the overlay, then fadeout to show nav */
+@-webkit-keyframes nav-overlay-open {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0;
+  }
+}
+@keyframes nav-overlay-open {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0;
+  }
+}
+/* fadein the overlay to hide nav then scale out */
+@-webkit-keyframes nav-overlay-close {
+  0% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+}
+@keyframes nav-overlay-close {
+  0% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(100);
+            transform: scale(100);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+}
+/* nav toggle button and hamburger animation */
+.nav-toggle .nav-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 18px;
+  height: 3px;
+  background-color: #ffffff;
+  z-index: 10;
+  border-radius: 3px;
+}
+.nav-toggle .nav-icon::before,
+.nav-toggle .nav-icon::after {
+  /* buns of the hamburger */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  background-color: inherit;
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+  content: '';
+}
+.nav-toggle .nav-icon:before {
+  -webkit-transform: translateY(-6px) rotate(0deg);
+          transform: translateY(-6px) rotate(0deg);
+}
+.nav-toggle .nav-icon:after {
+  -webkit-transform: translateY(6px) rotate(0deg);
+          transform: translateY(6px) rotate(0deg);
+}
+/* fade out the hamburger */
+.nav-open .nav-toggle .nav-icon {
+  background-color: rgba(255, 255, 255, 0);
+}
+/* make the buns white */
+.nav-open .nav-toggle .nav-icon:before,
+.nav-toggle .nav-icon:after {
+  background-color: white;
+}
+/* cross the buns  haha */
+.nav-open .nav-toggle .nav-icon:before {
+  -webkit-transform: translateY(0) rotate(45deg);
+          transform: translateY(0) rotate(45deg);
+}
+.nav-open .nav-toggle .nav-icon:after {
+  -webkit-transform: translateY(0) rotate(-45deg);
+          transform: translateY(0) rotate(-45deg);
+}
+/* BUTTONS */
+.button {
+  display: inline-block;
+  padding: .5rem 2.1rem;
+  margin: 0 1.6rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: white;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+  background: #DE14C4;
+  border: 2px solid #DE14C4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .875rem;
+  white-space: nowrap;
+}
+.button:hover {
+  background: #af109b;
+  border-color: #af109b;
+  color: white;
+}
+.button.hollow {
+  border: 2px solid #DE14C4;
+  background: transparent;
+  color: #DE14C4;
+}
+.button.hollow:hover {
+  background: #DE14C4;
+  color: white;
+}
+.button.navy {
+  background: #26262b;
+  border: 2px solid #26262b;
+}
+.button.navy:hover {
+  background: #0e0e10;
+  border-color: #0e0e10;
+  color: white;
+}
+.button.navy.hollow {
+  border: 2px solid #26262b;
+  background: transparent;
+  color: #26262b;
+}
+.button.navy.hollow:hover {
+  background: #26262b;
+  color: white;
+}
+.button.white {
+  background: white;
+  border: 2px solid white;
+}
+.button.white:hover {
+  background: #e6e6e6;
+  border-color: #e6e6e6;
+  color: white;
+}
+.button.white.hollow {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+}
+.button.white.hollow:hover {
+  background: white;
+  color: white;
+}
+.button.black {
+  background: #333333;
+  border: 2px solid #333333;
+}
+.button.black:hover {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: white;
+}
+.button.black.hollow {
+  border: 2px solid #333333;
+  background: transparent;
+  color: #333333;
+}
+.button.black.hollow:hover {
+  background: #333333;
+  color: white;
+}
+/* hollow mixin */
+/* STRUCTURE */
+.main-logo {
+  height: 2.6rem;
+  width: auto;
+  margin-bottom: .5rem;
+}
+.tagline {
+  color: #808080;
+  font-size: 1.1875rem;
+  font-weight: 300;
+}
+/* home page */
+/* float 50% width logos on devices */
+@media only screen and (max-width : 769px) {
+  .logos {
+    /* for some fucking reason
+		overflow:hidden clears the floated imgs
+		because floating things fucking sucks
+		*/
+    overflow: hidden;
+  }
+  .logos img {
+    width: 50%;
+    height: auto;
+    float: left;
+  }
+}
+/* sections */
+section {
+  padding: 4.2rem 0;
+}
+.section-full-height {
+  height: 100vh;
+}
+.section-intro {
+  background: #26262b url(../img/comp.jpg) no-repeat;
+  background-position: bottom center;
+  background-size: auto 60%;
+}
+@media only screen and (min-width: 950px) {
+  .section-intro {
+    background-position: center right;
+    background-size: 75% auto;
+  }
+}
+/*portfolio single*/
+.portfolio-single h5 {
+  margin-top: 2.6em;
+}
+.portfolio-single .row + .row {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 2.6rem;
+  padding-top: 2.6rem;
+}
+/* portfolio page */
+.portfolio-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  padding: 2.6rem 2.6rem 1px;
+}
+.portfolio-link h5 {
+  margin-top: 1.6rem;
+}
+.portfolio-link:hover {
+  /*box-shadow:0 20px 40px rgba(0,0,0,.2);*/
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  background: #f1f1f1;
+}
+/* page-header */
+.page-header {
+  background-color: #26262b;
+  color: white;
+}
+.page-header p {
+  color: #808080;
+}
+@media only screen and (max-width : 769px) {
+  .page-header {
+    height: auto;
+  }
+}
+.page-title {
+  margin: 2.6rem 0 1.6rem;
+  margin: 0;
+}
+@media only screen and (min-width: 950px) {
+  .pull-img {
+    max-width: 125%;
+    height: auto;
+    margin-left: -28%;
+  }
+}
+/* cta */
+.cta {
+  background: #2d2d33;
+  background-size: 25%;
+  color: #a6a6a6;
+  text-align: center;
+}
+.cta h4 {
+  color: white;
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 950px) {
+  .cta {
+    text-align: inherit;
+  }
+  .cta * {
+    margin-bottom: 0;
+  }
+}
+.footer {
+  background: #26262b;
+  color: #808080;
+}
+.footer p {
+  margin-bottom: 0;
+}
+.footer .main-logo {
+  height: 2.1rem;
+  width: auto;
+  display: inline-block;
+  margin-bottom: 3.5rem;
+}
+.footer .main-logo img {
+  display: block;
+}
+@media only screen and (min-width: 950px) {
+  .footer .main-logo {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 950px) {
+  .footer ul {
+    text-align: right;
+  }
+}
+.footer ul li {
+  list-style-type: none;
+}
+@media only screen and (min-width: 950px) {
+  .footer ul li {
+    display: inline;
+    margin-left: 2.6rem;
+  }
+}
+.footer ul li a {
+  color: #808080;
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.footer ul li a:hover {
+  color: #a6a6a6;
+}

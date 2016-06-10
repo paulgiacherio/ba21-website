@@ -1,0 +1,1 @@
+document.getElementById("nav-toggle").onclick=function(){return document.body.classList.contains("nav-open")?(document.body.classList.remove("nav-open"),document.body.classList.add("nav-close")):(document.body.classList.add("nav-open"),document.body.classList.remove("nav-close")),!1};

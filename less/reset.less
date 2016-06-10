@@ -1,0 +1,58 @@
+/* RESET */
+
+/* 
+	remove all defaults and ensure border-box
+	add @lh margin to everything - an experiment 
+*/
+
+* {
+    margin: 0;
+    padding:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* block these */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/* just in case */
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+}
+
+/* body and html height and background*/
+
+html,body{
+  min-height:100vh;
+  background:@bg-color;
+}
+
+/* make sure images are responsive */
+
+img{
+	max-width:100%;
+	height:auto;
+    display:block;
+}

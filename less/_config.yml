@@ -1,0 +1,13 @@
+# Site settings
+title: BA21 web + media
+email: paul@ba21.us
+description: BA21 - web design & development 
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.ba21.us" # the base hostname & protocol for your site
+# twitter_username: cleangredients
+github_username:  
+
+
+# Build settings
+markdown: kramdown
+exclude: ["config.codekit"]

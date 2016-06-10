@@ -1,0 +1,146 @@
+ /* STRUCTURE */
+
+.main-logo{
+	height:2.6rem;
+	width:auto;
+	margin-bottom:.5rem;
+	
+}
+.tagline{
+	color:@gray;
+	font-size:1.1875rem;
+	font-weight:300;
+	
+}
+
+/* home page */
+
+/* float 50% width logos on devices */
+.logos{
+	@media @sm{
+
+		/* for some fucking reason
+		overflow:hidden clears the floated imgs
+		because floating things fucking sucks
+		*/
+		overflow: hidden;
+
+		img{
+			width:50%;
+			height:auto;
+			float:left;
+		}
+	}
+}
+
+/* sections */
+
+ section{
+ 	padding:4.2rem 0;
+ }
+
+ .section-full-height{
+ 	height:100vh;
+ }
+
+ .section-intro{
+ 	background:@navy url(../img/comp.jpg) no-repeat;
+ 	background-position:bottom center;
+ 	background-size:auto 60%;
+
+ 	@media @xl{
+ 		background-position:center right;
+ 		background-size:75% auto;
+
+ 	}
+ }
+
+/*portfolio single*/
+
+ .portfolio-single{
+	
+	h5{
+		margin-top:2.6em;
+	}
+
+ 	.row + .row{
+ 		border-top:1px solid @gray-lighter;
+ 		margin-top:2.6rem;
+ 		padding-top:2.6rem;
+ 	}
+
+ }
+ 
+ /* portfolio page */
+
+.portfolio-link{
+	display:block;
+	position:relative;
+	text-decoration:none;
+	padding:2.6rem 2.6rem 1px;
+
+	h5{
+		margin-top:1.6rem;
+	}
+
+	&:hover{
+		/*box-shadow:0 20px 40px rgba(0,0,0,.2);*/
+		transform:translateY(-2px);
+		background:#f1f1f1;
+	}
+}
+
+
+/* page-header */
+
+ .page-header{
+ 	background-color:@navy;
+ 	color:white;
+
+ 	p{
+ 		color:@gray;
+ 	}
+ 	h2{
+ 		
+ 	}
+
+ 	@media @sm{
+ 		height:auto
+ 	}
+ }
+ .page-title{
+ 	margin:2.6rem 0 1.6rem;
+ 	margin:0;
+ }
+
+ .pull-img{
+ 	
+ 	@media @xl{
+ 		max-width:125%;
+ 		height:auto;
+ 		margin-left:-28%;
+ 	}
+ }
+
+/* cta */
+.cta{
+	
+	background:lighten(@navy,3%);
+	background-size:25%;
+	color:@gray-light;
+	text-align:center;
+	
+
+	h4{
+		color:white;
+		margin-bottom:0;
+	}
+
+	@media @xl{
+		text-align:inherit;
+
+		* {
+			margin-bottom:0;
+		}
+	}
+}
