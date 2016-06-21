@@ -40,6 +40,22 @@ nav{
 	    align-self: center;
 	}
 }
+.social-links{
+	font-size:1.6em;
+
+	li{
+		display:inline;
+		margin-right:.5em;
+
+		a{
+			color:darken(@violet,20%);
+
+			&:hover{
+				color:@navy;
+			};
+		}
+	}
+}
 	
 	/* move nav onscreen */
 	@keyframes navopen{
@@ -83,8 +99,8 @@ nav{
 
 /* contains the toggle */
 header{
-	position: fixed;
-	top:1.6rem;
+	position: absolute;
+	top:1rem;
 	width:100%;
 	z-index:100;
 
@@ -93,7 +109,9 @@ header{
 	}
 
 	@media @xl{
-		top:2.6rem;
+		/*top:2.6rem;*/
+		top:10rem;
+		/*top:4.5rem;*/
 	}
 }
 

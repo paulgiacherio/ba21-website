@@ -49,6 +49,60 @@ img.text-center {
     display: none;
   }
 }
+.pad-bottom .grid {
+  margin-bottom: 4.1rem;
+}
+/* tooltip*/
+/* Add this attribute to the element that needs a tooltip */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  border-radius: 3px;
+  background-color: #26262b;
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #26262b;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
 /* simplified responsive queries */
 /* RESET */
 /* 
@@ -412,6 +466,19 @@ nav .nav-grid {
   -ms-flex-item-align: center;
       align-self: center;
 }
+.social-links {
+  font-size: 1.6em;
+}
+.social-links li {
+  display: inline;
+  margin-right: .5em;
+}
+.social-links li a {
+  color: #800c71;
+}
+.social-links li a:hover {
+  color: #26262b;
+}
 /* move nav onscreen */
 @-webkit-keyframes navopen {
   from {
@@ -473,8 +540,8 @@ nav .nav-grid {
 }
 /* contains the toggle */
 header {
-  position: fixed;
-  top: 1.6rem;
+  position: absolute;
+  top: 1rem;
   width: 100%;
   z-index: 100;
 }
@@ -483,7 +550,9 @@ header {
 }
 @media only screen and (min-width: 950px) {
   header {
-    top: 2.6rem;
+    /*top:2.6rem;*/
+    top: 10rem;
+    /*top:4.5rem;*/
   }
 }
 .nav-toggle {
@@ -758,6 +827,12 @@ header {
   font-size: 1.1875rem;
   font-weight: 300;
 }
+@media only screen and (min-width: 950px) {
+  .index-logo {
+    -webkit-transform: translateY(-9rem);
+            transform: translateY(-9rem);
+  }
+}
 /* home page */
 /* float 50% width logos on devices */
 @media only screen and (max-width : 769px) {
@@ -788,8 +863,8 @@ section {
 }
 @media only screen and (min-width: 950px) {
   .section-intro {
-    background-position: center right;
-    background-size: 75% auto;
+    background-position: center center;
+    background-size: 90% auto;
   }
 }
 /*portfolio single*/
@@ -836,9 +911,16 @@ section {
 }
 @media only screen and (min-width: 950px) {
   .pull-img {
+    max-width: 120%;
+    height: auto;
+    margin-left: -20%;
+  }
+}
+@media only screen and (min-width: 950px) {
+  .pull-img-right {
     max-width: 125%;
     height: auto;
-    margin-left: -28%;
+    margin-right: -28%;
   }
 }
 /* cta */
@@ -847,6 +929,7 @@ section {
   background-size: 25%;
   color: #a6a6a6;
   text-align: center;
+  padding: 6.6rem 0;
 }
 .cta h4 {
   color: white;
@@ -859,6 +942,51 @@ section {
   .cta * {
     margin-bottom: 0;
   }
+}
+form {
+  display: inline-block;
+  background: #f7f7f7;
+  padding: 2.6rem;
+  margin: 0 auto;
+  text-align: left;
+}
+form input[type=text],
+form input[type=email],
+form textarea {
+  padding: 6px;
+  width: 250px;
+  border: 1px solid #e6e6e6;
+}
+form input[type=text]:focus,
+form input[type=email]:focus,
+form textarea:focus {
+  outline: none !important;
+  border: 1px solid #DE14C4;
+  box-shadow: none;
+}
+form textarea {
+  width: 350px;
+  height: 250px;
+}
+form label span {
+  display: block;
+  text-align: left;
+  color: #808080;
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+form .button {
+  margin: 0;
+}
+form .button:focus {
+  outline: none;
+}
+.mail-link {
+  color: inherit;
+  text-decoration: none;
+}
+.mail-link:hover {
+  color: #DE14C4;
 }
 .footer {
   background: #26262b;
