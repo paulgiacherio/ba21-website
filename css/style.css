@@ -859,8 +859,8 @@ section {
 }
 .section-intro {
   background: #26262b url(../img/comp.jpg) no-repeat;
-  background-position: bottom center;
-  background-size: auto 60%;
+  background-position: center 75%;
+  background-size: auto 50%;
 }
 @media only screen and (min-width: 950px) {
   .section-intro {
