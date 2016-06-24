@@ -945,34 +945,41 @@ section {
   }
 }
 form {
-  display: inline-block;
-  background: #f7f7f7;
+  /*display:inline-block; */
+  background: white;
   padding: 2.6rem;
-  margin: 0 auto;
+  margin: 0 auto 2.6rem;
   text-align: left;
+  /*border:1px solid @gray-lighter;*/
+}
+@media only screen and (max-width : 769px) {
+  form {
+    padding: 1.6rem;
+  }
 }
 form input[type=text],
 form input[type=email],
 form textarea {
-  padding: 6px;
-  width: 250px;
-  border: 1px solid #e6e6e6;
+  padding: 6px 0;
+  width: 75%;
+  border: 0;
+  border-bottom: 1px solid #e6e6e6;
 }
 form input[type=text]:focus,
 form input[type=email]:focus,
 form textarea:focus {
   outline: none !important;
-  border: 1px solid #DE14C4;
+  border-bottom: 1px solid #DE14C4;
   box-shadow: none;
 }
 form textarea {
-  width: 350px;
+  width: 100%;
   height: 250px;
 }
 form label span {
   display: block;
   text-align: left;
-  color: #808080;
+  color: #a6a6a6;
   text-transform: uppercase;
   font-size: .75rem;
 }

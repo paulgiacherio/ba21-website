@@ -163,34 +163,46 @@
 }
 
 form{
-	display:inline-block; 
-	background:@gray-lightest;
+	/*display:inline-block; */
+	background:white;
 	padding:2.6rem;
-	margin:0 auto;
+	margin:0 auto 2.6rem;
 	text-align:left;
+	/*border:1px solid @gray-lighter;*/
+
+	@media @sm{
+		padding:1.6rem;
+	}
 
 	input[type=text],
 	input[type=email],
 	textarea{
-		padding:6px;
-		width:250px;
-		border:1px solid @gray-lighter;	
+		padding:6px 0;
+		width:75%;
+		border:0;
+		border-bottom:1px solid @gray-lighter;	
+		
+
+		
 
 		&:focus{
 			outline: none !important;
-		    border:1px solid @violet;
+		    border-bottom:1px solid @violet;
 		    box-shadow:none;
+
 		};
 	}
 	textarea{
-		width:350px;
+		width:100%;
 		height:250px;
+
+		
 	}
 	label{
 		span{
 			display:block;
 			text-align:left;
-			color:@gray;
+			color:@gray-light;
 			text-transform:uppercase;
 			font-size:.75rem;
 		}
