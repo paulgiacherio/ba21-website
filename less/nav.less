@@ -12,14 +12,19 @@ nav{
 		list-style-type: none;
 	}
 	
-	/* wait, then overlay the nav container */
-	.nav-open &{
-		animation: navopen .1s .1s both;
-	}
-	/* wait then hide the nav container */
-	.nav-close &{
-		animation: navclose .1s .3s both;
-	}
+/*	.nav-open &{
+      transition:transform .2s .4s, opacity .1s .4s;
+      transform:translateY(0);
+      opacity:1;
+      
+    }
+    
+    .nav-close &{
+      transition:transform .2s, opacity .1s;
+      transform:translateY(50px);
+      opacity:0;
+      
+    }*/
 	
 
 	.nav-row{
@@ -60,24 +65,19 @@ nav{
 	}
 }
 	
-	/* move nav onscreen */
-	@keyframes navopen{
-		from{
-			transform:scale(0);		
-		}
-		to{
-			transform:scale(1);		
-		}
-	}
-	/* move nav offscreen */
-	@keyframes navclose{
-		from{
-			transform:scale(1);		
-		}
-		to{
-			transform:scale(0);		
-		}
-	}
+
+
+// wait, then scale up the nav
+.nav-open nav {
+    transition: transform .1s .3s ;
+    transform: scale(1);
+  }
+
+// wait then scale down nav
+.nav-close nav {
+    transition: transform .1s .3s ;
+    transform: scale(0);
+  }
 
 /* nav styles */
 .nav-list{
@@ -143,11 +143,10 @@ header{
 	}
 
 	&:before{
-
 		position:absolute;
 		width:100%;
 		height:100%;
-		transform:scale(0);
+		transform:scale(1);
 		opacity:1;
 		transform-origin: center center;
 		background:@violet;
@@ -157,47 +156,24 @@ header{
 		border-radius:inherit;
 		
 		/* grow overlay from behind button */
-		.nav-open &{
-
-			animation: nav-overlay-open .75s;
-		}
+		 .nav-open & {
+		      transition:transform .5s,opacity .25s .5s,visibility .1s .75s;
+		      transform: scale(150);
+		      opacity:0;
+		      visibility:hidden;
+		    }
 
 		/* shrink overlay */
-		.nav-close &{
-			animation: nav-overlay-close .75s;
-		}
+		.nav-close & {
+	      transition:visibility .1s,opacity .25s 0s,transform .5s .35s;
+	      transform: scale(0);
+	      opacity:1;
+	      visibility:visible;
+	    }
 
 	}
 }
-	/* scale up the overlay, then fadeout to show nav */
-	@keyframes nav-overlay-open{
-		0%{
-			transform:scale(0);		
-			opacity:1;}
-		50%{
-			transform:scale(100);		
-			opacity:1;
-		}	
-		100%{
-			transform:scale(100);		
-			opacity:0;
-		}
-	}
-	
-	/* fadein the overlay to hide nav then scale out */
-	@keyframes nav-overlay-close{
-		0%{
-			transform:scale(100);		
-			opacity:0;}
-		50%{
-			transform:scale(100);		
-			opacity:1;
-		}	
-		100%{
-			transform:scale(0);		
-			opacity:1;
-		}
-	}
+
 
 /* nav toggle button and hamburger animation */
 .nav-toggle .nav-icon {
