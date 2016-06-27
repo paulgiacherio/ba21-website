@@ -807,11 +807,24 @@ section {
 .portfolio-link h5 {
   margin-top: 1.6rem;
 }
+.portfolio-link:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
 .portfolio-link:hover {
-  /*box-shadow:0 20px 40px rgba(0,0,0,.2);*/
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-  background: #f1f1f1;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+.portfolio-link:hover:after {
+  background: rgba(0, 0, 0, 0.05);
 }
 /* page-header */
 .page-header {
@@ -833,6 +846,7 @@ section {
 @media only screen and (min-width: 950px) {
   .pull-img {
     max-width: 120%;
+    min-width: 120%;
     height: auto;
     margin-left: -20%;
   }
