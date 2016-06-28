@@ -4,12 +4,32 @@
 	height:2.6rem;
 	width:auto;
 	margin-bottom:.5rem;	
+	height:1.8rem;
+	margin-bottom:0;
+	z-index:-1;
+	transition:all .3s .25s;
+	
+	/*this gets around all the z-index problems*/
+	.nav-open &{
+		opacity:0;
+	}
+
 }
 .tagline{
 	color:@gray;
 	font-size:1.1875rem;
 	font-weight:300;
+}
+
+.big{
+	font-size:10.5rem;
+	color:white;
+	font-weight:700;
+	text-shadow:0 0px 20px rgba(0,0,0,.1);
 	
+	@media @sm{
+		font-size:12vw;
+	}
 }
 
 .index-logo{
@@ -50,13 +70,39 @@
 
  .section-intro{
  	background:@navy url(../img/comp.jpg) no-repeat;
- 	background-position:center 75%;
- 	background-size:auto 50%;
+ 	background-position:center center;
+ 	background-size:auto 75%;
 
  	@media @xl{
  		background-position:center center;
  		background-size:90% auto;
 
+ 	}
+
+ 	.row{
+ 		display:flex;
+ 		height:100%;
+
+ 		.grid{
+ 			flex:1;
+ 			text-align:center;
+ 			-webkit-align-self: center;
+		    -moz-align-self: center;
+		    -ms-align-self: center;
+		    align-self: center;
+ 		}
+ 	}
+
+ 	h2{
+ 		color:white;
+ 		font-weight:400;
+ 		margin-bottom:0;
+ 		font-size:2.1rem;
+
+ 		sup{
+ 			font-weight:700;
+ 			color:@violet;
+ 		}
  	}
  	
  }
@@ -117,12 +163,13 @@
  .page-header{
  	background-color:@navy;
  	color:white;
+ 	text-align:left;
 
  	p{
  		color:@gray;
  	}
  	h2{
- 		
+		 		
  	}
 
  	@media @sm{
@@ -130,8 +177,11 @@
  	}
  }
  .page-title{
- 	margin:2.6rem 0 1.6rem;
- 	margin:0;
+ 	margin:4.1rem 0 .5rem;
+ 	text-transform:uppercase;
+ 	font-size:1.3rem;
+ 	letter-spacing: 4px;
+ 	color:@gray-lighter;
  }
 
  .pull-img{

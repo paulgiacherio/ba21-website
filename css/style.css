@@ -485,18 +485,18 @@ nav .nav-grid {
   color: #26262b;
 }
 .nav-open nav {
-  -webkit-transition: -webkit-transform .1s .3s;
-  transition: -webkit-transform .1s .3s;
-  transition: transform .1s .3s ;
-  transition: transform .1s .3s, -webkit-transform .1s .3s;
+  -webkit-transition: -webkit-transform .1s .25s;
+  transition: -webkit-transform .1s .25s;
+  transition: transform .1s .25s ;
+  transition: transform .1s .25s, -webkit-transform .1s .25s;
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 .nav-close nav {
-  -webkit-transition: -webkit-transform .1s .3s;
-  transition: -webkit-transform .1s .3s;
-  transition: transform .1s .3s ;
-  transition: transform .1s .3s, -webkit-transform .1s .3s;
+  -webkit-transition: -webkit-transform .1s .25s;
+  transition: -webkit-transform .1s .25s;
+  transition: transform .1s .25s ;
+  transition: transform .1s .25s, -webkit-transform .1s .25s;
   -webkit-transform: scale(0);
           transform: scale(0);
 }
@@ -520,31 +520,50 @@ nav .nav-grid {
 /* contains the toggle */
 header {
   position: absolute;
-  top: 1rem;
+  top: 1.6rem;
   width: 100%;
   z-index: 100;
+  /*background:red;*/
+}
+header .row {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+header .row .grid {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 .nav-open header {
   position: fixed;
 }
-@media only screen and (min-width: 950px) {
-  header {
-    /*top:2.6rem;*/
-    top: 10rem;
-    /*top:4.5rem;*/
-  }
-}
 .nav-toggle {
   outline: 0;
-  background: #DE14C4;
-  display: inline-block;
+  /*background:@violet;*/
+  background: #26262b;
+  display: block;
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  /*box-shadow:0px 2px 5px rgba(0,0,0,.3);*/
   -webkit-transition: all .3s;
   transition: all .3s;
   position: relative;
+  float: right;
+  z-index: 101;
+}
+@media only screen and (max-width : 769px) {
+  .nav-toggle {
+    background: #DE14C4;
+  }
 }
 .nav-toggle:hover,
 .nav-toggle:active,
@@ -562,8 +581,8 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  -webkit-transform: scale(0);
+          transform: scale(0);
   opacity: 1;
   -webkit-transform-origin: center center;
           transform-origin: center center;
@@ -576,20 +595,20 @@ header {
   /* shrink overlay */
 }
 .nav-open .nav-toggle:before {
-  -webkit-transition: opacity .25s .5s,visibility .1s .75s,-webkit-transform .5s;
-  transition: opacity .25s .5s,visibility .1s .75s,-webkit-transform .5s;
-  transition: transform .5s,opacity .25s .5s,visibility .1s .75s;
-  transition: transform .5s,opacity .25s .5s,visibility .1s .75s,-webkit-transform .5s;
+  -webkit-transition: opacity .25s .4s,visibility .1s .65s,-webkit-transform .4s;
+  transition: opacity .25s .4s,visibility .1s .65s,-webkit-transform .4s;
+  transition: transform .4s,opacity .25s .4s,visibility .1s .65s;
+  transition: transform .4s,opacity .25s .4s,visibility .1s .65s,-webkit-transform .4s;
   -webkit-transform: scale(150);
           transform: scale(150);
   opacity: 0;
   visibility: hidden;
 }
 .nav-close .nav-toggle:before {
-  -webkit-transition: visibility .1s,opacity .25s 0s,-webkit-transform .5s .35s;
-  transition: visibility .1s,opacity .25s 0s,-webkit-transform .5s .35s;
-  transition: visibility .1s,opacity .25s 0s,transform .5s .35s;
-  transition: visibility .1s,opacity .25s 0s,transform .5s .35s,-webkit-transform .5s .35s;
+  -webkit-transition: visibility .1s,opacity .25s 0s,-webkit-transform .4s .35s;
+  transition: visibility .1s,opacity .25s 0s,-webkit-transform .4s .35s;
+  transition: visibility .1s,opacity .25s 0s,transform .4s .35s;
+  transition: visibility .1s,opacity .25s 0s,transform .4s .35s,-webkit-transform .4s .35s;
   -webkit-transform: scale(0);
           transform: scale(0);
   opacity: 1;
@@ -742,11 +761,31 @@ header {
   height: 2.6rem;
   width: auto;
   margin-bottom: .5rem;
+  height: 1.8rem;
+  margin-bottom: 0;
+  z-index: -1;
+  -webkit-transition: all .3s .25s;
+  transition: all .3s .25s;
+  /*this gets around all the z-index problems*/
+}
+.nav-open .main-logo {
+  opacity: 0;
 }
 .tagline {
   color: #808080;
   font-size: 1.1875rem;
   font-weight: 300;
+}
+.big {
+  font-size: 10.5rem;
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 0px 20px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width : 769px) {
+  .big {
+    font-size: 12vw;
+  }
 }
 @media only screen and (min-width: 950px) {
   .index-logo {
@@ -779,14 +818,42 @@ section {
 }
 .section-intro {
   background: #26262b url(../img/comp.jpg) no-repeat;
-  background-position: center 75%;
-  background-size: auto 50%;
+  background-position: center center;
+  background-size: auto 75%;
 }
 @media only screen and (min-width: 950px) {
   .section-intro {
     background-position: center center;
     background-size: 90% auto;
   }
+}
+.section-intro .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+.section-intro .row .grid {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.section-intro h2 {
+  color: white;
+  font-weight: 400;
+  margin-bottom: 0;
+  font-size: 2.1rem;
+}
+.section-intro h2 sup {
+  font-weight: 700;
+  color: #DE14C4;
 }
 /*portfolio single*/
 .portfolio-single h5 {
@@ -830,6 +897,7 @@ section {
 .page-header {
   background-color: #26262b;
   color: white;
+  text-align: left;
 }
 .page-header p {
   color: #808080;
@@ -840,8 +908,11 @@ section {
   }
 }
 .page-title {
-  margin: 2.6rem 0 1.6rem;
-  margin: 0;
+  margin: 4.1rem 0 .5rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+  color: #e6e6e6;
 }
 @media only screen and (min-width: 950px) {
   .pull-img {
@@ -938,7 +1009,7 @@ form .button:focus {
   margin-bottom: 0;
 }
 .footer .main-logo {
-  height: 2.1rem;
+  height: 1.8rem;
   width: auto;
   display: inline-block;
   margin-bottom: 3.5rem;
