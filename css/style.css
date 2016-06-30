@@ -767,10 +767,14 @@ header .row .grid {
   z-index: -1;
   -webkit-transition: all .3s .25s;
   transition: all .3s .25s;
+  display: inline-block;
   /*this gets around all the z-index problems*/
 }
 .nav-open .main-logo {
   opacity: 0;
+}
+.main-logo small {
+  font-size: .925rem;
 }
 .text-logo {
   color: white;
