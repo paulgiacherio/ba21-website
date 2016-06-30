@@ -13,8 +13,50 @@
 	.nav-open &{
 		opacity:0;
 	}
-
 }
+
+.text-logo{
+	color:white;
+	text-decoration:none;
+
+	.footer &{
+		color:@gray;
+	}
+
+	h1{
+		font-size:1.8rem;
+		font-weight:700;
+		margin-bottom:0;
+		line-height:1em;
+
+		sup{
+			font-weight:300;
+			font-size:.5em;
+			vertical-align: 50%;
+		}
+		small{
+			font-weight:300;
+			color:@gray-light;
+			/*padding-left:.25rem;*/
+			display:inline-block;
+			font-size:.5em;
+			transition: all .3s;
+			transform:translateY(10px);
+			opacity:0;
+		}
+
+	}
+
+	&:hover{
+		color:@gray-light;
+
+		small{
+			transform:translateY(0px);
+			opacity:1;
+		}
+	};
+}
+
 .tagline{
 	color:@gray;
 	font-size:1.1875rem;

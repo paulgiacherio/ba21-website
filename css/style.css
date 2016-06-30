@@ -558,6 +558,7 @@ header .row .grid {
   transition: all .3s;
   position: relative;
   float: right;
+  margin-right: -11px;
   z-index: 101;
 }
 @media only screen and (max-width : 769px) {
@@ -770,6 +771,44 @@ header .row .grid {
 }
 .nav-open .main-logo {
   opacity: 0;
+}
+.text-logo {
+  color: white;
+  text-decoration: none;
+}
+.footer .text-logo {
+  color: #808080;
+}
+.text-logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  line-height: 1em;
+}
+.text-logo h1 sup {
+  font-weight: 300;
+  font-size: .5em;
+  vertical-align: 50%;
+}
+.text-logo h1 small {
+  font-weight: 300;
+  color: #a6a6a6;
+  /*padding-left:.25rem;*/
+  display: inline-block;
+  font-size: .5em;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  opacity: 0;
+}
+.text-logo:hover {
+  color: #a6a6a6;
+}
+.text-logo:hover small {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
 }
 .tagline {
   color: #808080;
