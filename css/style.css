@@ -17,6 +17,10 @@ img.text-center {
   margin-left: auto;
   margin-right: auto;
 }
+.text-center ul {
+  text-align: left;
+  display: inline-block;
+}
 .text-right {
   text-align: right;
 }
