@@ -75,7 +75,7 @@
 	text-shadow:0 0px 20px rgba(0,0,0,.1);
 	
 	@media @sm{
-		font-size:12vw;
+		font-size:14vw;
 	}
 }
 
@@ -108,7 +108,11 @@
 /* sections */
 
  section{
- 	padding:4.2rem 0;
+ 	padding:2.6rem 0;
+
+ 	@media @xl{
+		padding:4.2rem 0;		 		
+ 	}
  }
 
  .section-full-height{
@@ -117,8 +121,8 @@
 
  .section-intro{
  	background:@navy url(../img/comp.jpg) no-repeat;
- 	background-position:center center;
- 	background-size:auto 75%;
+ 	background-position:center 115%;
+ 	background-size:140% auto;
 
  	@media @xl{
  		background-position:center center;
@@ -159,13 +163,33 @@
  .portfolio-single{
 	
 	h5{
-		margin-top:2.6em;
+		
+
+		@media @xl{
+			margin-top:2.6em;	
+		}
 	}
 
  	.row + .row{
  		border-top:1px solid @gray-lighter;
  		margin-top:2.6rem;
  		padding-top:2.6rem;
+ 	}
+
+	
+ 	.page-header{
+	
+		@media @sm{
+			img{
+ 				margin:3.5rem 0 2.1rem;	
+ 			}
+ 			h2{
+ 				font-size:2.1rem;
+
+ 			}	
+		}	
+ 		
+ 		
  	}
 
  }
@@ -177,6 +201,10 @@
 	position:relative;
 	text-decoration:none;
 	padding:2.6rem 2.6rem 1px;
+
+	@media @sm{
+		padding:1rem 1rem 1px;
+	}
 
 	h5{
 		margin-top:1.6rem;
@@ -230,7 +258,7 @@
  	}
  }
  .page-title{
- 	margin:4.1rem 0 .5rem;
+ 	margin:4.1rem 0 0;
  	text-transform:uppercase;
  	font-size:1.3rem;
  	letter-spacing: 4px;
@@ -238,12 +266,15 @@
  }
 
  .pull-img{
+
+ 	margin-bottom:2.1rem;
  	
  	@media @xl{
  		max-width:120%;
  		min-width:120%;
  		height:auto;
  		margin-left:-20%;
+ 		margin-bottom:0;
  	}
  }
 .pull-img-right{
@@ -263,7 +294,9 @@
 	background-size:25%;
 	color:@gray-light;
 	text-align:center;
-	padding:6.6rem 0;
+	padding:4.1rem 0;
+
+
 	
 
 	h4{
@@ -273,6 +306,7 @@
 
 	@media @xl{
 		text-align:inherit;
+		padding:6.6rem 0;
 
 		* {
 			margin-bottom:0;

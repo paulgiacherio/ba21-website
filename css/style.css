@@ -21,6 +21,11 @@ img.text-center {
   text-align: left;
   display: inline-block;
 }
+@media only screen and (max-width : 769px) {
+  .text-center ul {
+    display: block;
+  }
+}
 .text-right {
   text-align: right;
 }
@@ -156,6 +161,9 @@ img {
   height: auto;
   display: block;
 }
+ul {
+  list-style-type: circle;
+}
 /* TEXT */
 /* body */
 html,
@@ -245,7 +253,7 @@ h6 {
 }
 /* GRID */
 .row {
-  padding: 0 1.6rem;
+  padding: 0 1.3rem ;
 }
 /* desktop only */
 @media only screen and (min-width: 950px) {
@@ -524,10 +532,14 @@ nav .nav-grid {
 /* contains the toggle */
 header {
   position: absolute;
-  top: 1.6rem;
+  top: 1rem;
   width: 100%;
   z-index: 100;
-  /*background:red;*/
+}
+@media only screen and (min-width: 950px) {
+  header {
+    top: 1.6rem;
+  }
 }
 header .row {
   max-width: 100%;
@@ -562,8 +574,12 @@ header .row .grid {
   transition: all .3s;
   position: relative;
   float: right;
-  margin-right: -11px;
   z-index: 101;
+}
+@media only screen and (min-width: 950px) {
+  .nav-toggle {
+    margin-right: -11px;
+  }
 }
 @media only screen and (max-width : 769px) {
   .nav-toggle {
@@ -831,7 +847,7 @@ header .row .grid {
 }
 @media only screen and (max-width : 769px) {
   .big {
-    font-size: 12vw;
+    font-size: 14vw;
   }
 }
 @media only screen and (min-width: 950px) {
@@ -858,15 +874,20 @@ header .row .grid {
 }
 /* sections */
 section {
-  padding: 4.2rem 0;
+  padding: 2.6rem 0;
+}
+@media only screen and (min-width: 950px) {
+  section {
+    padding: 4.2rem 0;
+  }
 }
 .section-full-height {
   height: 100vh;
 }
 .section-intro {
   background: #26262b url(../img/comp.jpg) no-repeat;
-  background-position: center center;
-  background-size: auto 75%;
+  background-position: center 115%;
+  background-size: 140% auto;
 }
 @media only screen and (min-width: 950px) {
   .section-intro {
@@ -903,13 +924,23 @@ section {
   color: #DE14C4;
 }
 /*portfolio single*/
-.portfolio-single h5 {
-  margin-top: 2.6em;
+@media only screen and (min-width: 950px) {
+  .portfolio-single h5 {
+    margin-top: 2.6em;
+  }
 }
 .portfolio-single .row + .row {
   border-top: 1px solid #e6e6e6;
   margin-top: 2.6rem;
   padding-top: 2.6rem;
+}
+@media only screen and (max-width : 769px) {
+  .portfolio-single .page-header img {
+    margin: 3.5rem 0 2.1rem;
+  }
+  .portfolio-single .page-header h2 {
+    font-size: 2.1rem;
+  }
 }
 /* portfolio page */
 .portfolio-link {
@@ -917,6 +948,11 @@ section {
   position: relative;
   text-decoration: none;
   padding: 2.6rem 2.6rem 1px;
+}
+@media only screen and (max-width : 769px) {
+  .portfolio-link {
+    padding: 1rem 1rem 1px;
+  }
 }
 .portfolio-link h5 {
   margin-top: 1.6rem;
@@ -961,11 +997,14 @@ section {
   }
 }
 .page-title {
-  margin: 4.1rem 0 .5rem;
+  margin: 4.1rem 0 0;
   text-transform: uppercase;
   font-size: 1.3rem;
   letter-spacing: 4px;
   color: #e6e6e6;
+}
+.pull-img {
+  margin-bottom: 2.1rem;
 }
 @media only screen and (min-width: 950px) {
   .pull-img {
@@ -973,6 +1012,7 @@ section {
     min-width: 120%;
     height: auto;
     margin-left: -20%;
+    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 950px) {
@@ -988,7 +1028,7 @@ section {
   background-size: 25%;
   color: #a6a6a6;
   text-align: center;
-  padding: 6.6rem 0;
+  padding: 4.1rem 0;
 }
 .cta h4 {
   color: white;
@@ -997,6 +1037,7 @@ section {
 @media only screen and (min-width: 950px) {
   .cta {
     text-align: inherit;
+    padding: 6.6rem 0;
   }
   .cta * {
     margin-bottom: 0;
@@ -1075,6 +1116,9 @@ form .button:focus {
     margin-bottom: 0;
   }
 }
+.footer .text-logo h1 {
+  margin-bottom: 1.6rem;
+}
 @media only screen and (min-width: 950px) {
   .footer ul {
     text-align: right;
@@ -1082,9 +1126,11 @@ form .button:focus {
 }
 .footer ul li {
   list-style-type: none;
+  padding: .25rem 0;
 }
 @media only screen and (min-width: 950px) {
   .footer ul li {
+    padding: 0;
     display: inline;
     margin-left: 2.6rem;
   }

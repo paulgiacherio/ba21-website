@@ -102,10 +102,14 @@ nav{
 /* contains the toggle */
 header{
 	position: absolute;
-	top:1.6rem;
+	top:1rem;
 	width:100%;
 	z-index:100;
-	/*background:red;*/
+	
+	
+	@media @xl{
+		top:1.6rem;
+	}
 
 	.row{
 		max-width:100%;
@@ -142,8 +146,11 @@ header{
 	transition: all .3s;
 	position:relative;
 	float:right;
-	margin-right:-11px;
 	z-index:101;
+
+	@media @xl{
+		margin-right:-11px;
+	}
 
 	@media @sm{
 		background:@violet;
